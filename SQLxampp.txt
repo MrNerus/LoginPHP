@@ -6,7 +6,7 @@ SET time_zone = "+00:00";
 -- Database: `myusers`
 --
 
-CREATE DATABAE `myusers`;
+CREATE DATABASE `myusers`;
 USE `myusers`;
 -- --------------------------------------------------------
 
