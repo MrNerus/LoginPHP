@@ -1,34 +1,5 @@
 <?php 
-// require("initOnce.php")
-?>
-<?php 
-session_start();
-if ($_SESSION['isLoggedIn'] != true) {
-    header("Location: /Login/login.php");
-    exit;
-}
-
-if (!isset($_SESSION['darkMode'])) {$_SESSION['darkMode'] = "off";}
-if (!isset($_SESSION['fontSize'])) {$_SESSION['fontSize'] = 14;}
-
-if(isset($_GET['get_session_values'])) {
-    $response = array(
-        'darkMode' => $_SESSION['darkMode'],
-        'fontSize' => $_SESSION['fontSize']
-    );
-    header('Content-Type: application/json');
-    echo json_encode($response);
-    exit();
-}
-
-if (isset($_POST)) {
-    if (isset($_POST['darkMode'])) {
-        $_SESSION['darkMode'] = $_POST['darkMode'] == 'on' ? 'on' : 'off';
-    }
-    if (isset($_POST['fontSize']) && $_POST['fontSize'] != '') {
-        $_SESSION['fontSize'] = $_POST['fontSize'];
-    }
-}
+require("initOnce.php")
 ?>
 
 <!DOCTYPE html>
@@ -39,9 +10,25 @@ if (isset($_POST)) {
     <title>Dashboard</title>
     <link rel="stylesheet" href="StaticFiles/CSS/root.css">
     <link rel="stylesheet" href="StaticFiles/CSS/utility.css">
+    <link rel="stylesheet" href="StaticFiles/CSS/dashboard.css">
 </head>
-<body>
-    <a href="up.php">User Preference</a>
+<style>
+
+</style>
+
+<body class="Container">
+    <div class="navBar">
+        <a href="up.php">User Preference</a>
+        <a href="logout.php">Logout</a>
+    </div>
+    <section class="Container Center_on_Flex">
+
+
+        <p id="Generated" class="Space">Something here</p>
+        <input type="button" value="Generate" onclick="Ask_For_Card()" class="Button_Links Space">
+    </section>
+
 </body>
 <script src="StaticFiles/JS/ui.js"></script>
+<script src="StaticFiles/JS/dashboard.js"></script>
 </html>

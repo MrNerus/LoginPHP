@@ -82,6 +82,7 @@ form:has( input[required]:placeholder-shown, input:invalid) input[type="submit"]
     width: 100%;
     font-size: 1rem;
     background-color: var(--colorBG);
+    color: var(--colorText)
 }
 .userInput input[type='text']:focus, 
 .userInput select:focus { outline: none; }
@@ -156,6 +157,31 @@ form:has( input[required]:placeholder-shown, input:invalid) input[type="submit"]
     background-color: var(--colorBG);
 
 }
+
+.navBar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    box-sizing: border-box;
+    
+}
+.navBar a {
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+    box-shadow: 0 0 0 0.1rem var(--transparantBright);
+    border-radius: 0.25rem;
+    color: var(--colorText);
+    text-decoration: none;
+}
+.navBar a:hover {
+    box-shadow: 0 0 0 0.1rem var(--colorOK);
+}
+
+
 
 @media screen and (max-width: 25rem) {
     .form { width: 95%; }
