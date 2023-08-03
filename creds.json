@@ -1,0 +1,24 @@
+[
+    {
+        "fname": "Demo",
+        "lname": "User",
+        "email": "DemoUser@localhost.com",
+        "phone no": "+977 (987) 6543210",
+        "DOB": "1970-01-01",
+        "Gender": "Male",
+        "username": "demoUser",
+        "password": "demo",
+        "confirm password": "demo"
+    },
+    {
+        "fname": "Ard",
+        "lname": "Nerus",
+        "email": "mrnerus@123.com",
+        "phone no": "+9779876543210",
+        "DOB": "1970-01-01",
+        "Gender": "Male",
+        "username": "demo",
+        "password": "demo",
+        "confirm password": "demo"
+    }
+]
