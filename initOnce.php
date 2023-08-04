@@ -25,8 +25,24 @@
 // }
 
 session_start();
+
+if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $_SESSION['expire_time']) {
+    // last request was more than 30 minutes ago
+    $conn = new mysqli("localhost", "root", "", "myUsers");
+    $uid = $_SESSION["id"];
+    $query = "INSERT INTO userlogs (u_id, logType) VALUES ($uid, 'SE')"; // SE stands for Session Expired
+    $conn->query($query);
+    $conn->close();
+    session_unset();     // unset $_SESSION variable for the run-time 
+    session_destroy();   // destroy session data in storage
+    header("Location: login.php");
+    exit;
+} else {
+    $_SESSION['last_activity'] = time(); // update last activity time stamp
+}
+
 if ($_SESSION['isLoggedIn'] != true) {
-    header("Location: /Login/login.php");
+    header("Location: login.php");
     exit;
 }
 

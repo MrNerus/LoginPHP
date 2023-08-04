@@ -15,6 +15,7 @@
 <body>
     <div class="navBar">
         <a href="dashboard.php">Dashboard</a>
+        <a href="logs.php">My Activities</a>
         <a href="logout.php">Logout</a>
     </div>
     <div class="fullPage centerElement">

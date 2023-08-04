@@ -39,6 +39,7 @@ if ($_POST) {
     $count = (($conn->query($query)) -> fetch_assoc())['count'];
     
     if ($count == 1) {
+        
         $query = "SELECT u.id as id, d.fname as fname, d.lname as lname, d.email as email FROM users u JOIN userdatas d ON u.id = d.u_id WHERE u.username = '$username'";
         $result = ($conn->query($query)) -> fetch_assoc();
          
@@ -47,9 +48,18 @@ if ($_POST) {
         $_SESSION["fname"] = $result["fname"];
         $_SESSION["lname"] = $result["lname"];
         $_SESSION["email"] = $result["email"];
-        $_SESSION["isLoggedIn"] = true;
+        $_SESSION['isLoggedIn'] = true;
+        $_SESSION['last_activity'] = time();
+        $_SESSION['expire_time'] = 30 * 60; // expires after thirty minutes of inactivity
+        
+        $uid = $_SESSION["id"];
+        $query = "INSERT INTO userlogs (u_id, logType) VALUES ($uid, 'LI')"; // Li stands for Logged In
+        $conn->query($query);
+        
+        $conn->close();
         header("Location: /Login/dashboard.php");
     } else {
+        $conn->close();
         $_SESSION["isLoggedIn"] = false;
     }
 }

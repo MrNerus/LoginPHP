@@ -19,6 +19,7 @@ require("initOnce.php")
 <body class="Container">
     <div class="navBar">
         <a href="up.php">User Preference</a>
+        <a href="logs.php">My Activities</a>
         <a href="logout.php">Logout</a>
     </div>
     <section class="Container Center_on_Flex">
