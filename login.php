@@ -51,9 +51,11 @@ if ($_POST) {
         $_SESSION['isLoggedIn'] = true;
         $_SESSION['last_activity'] = time();
         $_SESSION['expire_time'] = 30 * 60; // expires after thirty minutes of inactivity
+        $_SESSION['idExpiryTime'] = 5 * 60;
+        $_SESSION['lastIdGenerated'] = time();
         
         $uid = $_SESSION["id"];
-        $query = "INSERT INTO userlogs (u_id, logType) VALUES ($uid, 'LI')"; // Li stands for Logged In
+        $query = "INSERT INTO userlogs (u_id, logType) VALUES ($uid, 'LI')"; // LI stands for Logged In
         $conn->query($query);
         
         $conn->close();

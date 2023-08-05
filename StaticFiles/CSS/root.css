@@ -1,6 +1,7 @@
 :root {
     --transition: 0.2s ease-in-out;
     --colorBG: #f5f5f5ff;
+    --colorBGHighlight: #ffffffff;
     --colorOK: #0000ff88;
     --colorNotOK: #ff000088;
     --transparantBright: #ffffff00;

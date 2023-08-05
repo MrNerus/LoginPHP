@@ -1,0 +1,21 @@
+ul.noStyle {
+    padding: 1rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    border: 1px solid var(--colorOK);
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+ul.noStyle li {
+    background-color: var(--colorBG);
+    color: var(--colorText);
+    transition: var(--transition);
+    padding: 0.25rem 0.5rem;
+    cursor: default;
+}
+ul.noStyle li:hover {
+    background-color: var(--colorBGHighlight);
+}

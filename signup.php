@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="StaticFiles/CSS/root.css">
     <link rel="stylesheet" href="StaticFiles/CSS/utility.css">
 </head>
@@ -97,9 +97,7 @@
                 // $c = $conn -> execute_query("INSERT INTO userDatas (u_id, fname, lname, email, phno, dob, gender) VALUES ('$uid', '$fname', '$lname', '$email', '$phno', '$dob', '$gender')");
 
 
-                $conn->autocommit(FALSE); // turn off autocommit
-
-                // Check if username already exists
+                $conn->autocommit(FALSE);
                 $result = $conn->query("SELECT id FROM users WHERE username = '$username'");
                 if($result->num_rows > 0) {
                     echo "Username already taken";
@@ -107,7 +105,6 @@
                     return;
                 }
 
-                // Insert into users table
                 $a = $conn->query("INSERT INTO users (username) VALUES ('$username')");
                 if(!$a) {
                     echo "Failed to insert into users: (" . $conn->errno . ") " . $conn->error;
@@ -115,10 +112,8 @@
                     return;
                 }
 
-                // Get user id
                 $uid = (($conn->query("SELECT id FROM users WHERE username = '$username'"))->fetch_assoc())['id'];
 
-                // Insert into userpasswords table
                 $hashedPassword = crypt($password, "K5X3");
                 $b = $conn->query("INSERT INTO userpasswords (u_id, password) VALUES ('$uid', '$hashedPassword')");
                 if(!$b) {
@@ -127,7 +122,6 @@
                     return;
                 }
 
-                // Insert into userDatas table
                 $c = $conn->query("INSERT INTO userDatas (u_id, fname, lname, email, phno, dob, gender) VALUES ('$uid', '$fname', '$lname', '$email', '$phno', '$dob', '$gender')");
                 if(!$c) {
                     echo "Failed to insert into userDatas: (" . $conn->errno . ") " . $conn->error;
@@ -135,7 +129,7 @@
                     return;
                 }
 
-                $conn->commit(); // commit the transaction if we made it this far
+                $conn->commit();
                 header("Location: login.php");
             }
             $conn -> close();

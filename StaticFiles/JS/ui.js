@@ -32,11 +32,13 @@ var xhr = new XMLHttpRequest();
                 document.documentElement.style.setProperty('--colorOK', '#8888ffff');
                 document.documentElement.style.setProperty('--colorNotOK', '#ff8888ff');
                 document.documentElement.style.setProperty('--colorText', '#f5f5f5ff');
+                document.documentElement.style.setProperty('--colorBGHighlight', '#000000ff');
             } else {
                 document.documentElement.style.setProperty('--colorBG', '#f5f5f5ff');
                 document.documentElement.style.setProperty('--colorOK', '#0000ff88');
                 document.documentElement.style.setProperty('--colorNotOK', '#ff000088');
                 document.documentElement.style.setProperty('--colorTextOK', '#0a0a0aff');
+                document.documentElement.style.setProperty('--colorBGHighlight', '#ffffffff');
             }
         }
     }
