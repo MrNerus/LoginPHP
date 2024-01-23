@@ -6,6 +6,8 @@
     --colorNotOK: #ff000088;
     --transparantBright: #ffffff00;
     --colorText: #0a0a0aff;
+    --rounding: 1rem;
+    --roundingTight: 0.5rem;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
@@ -21,3 +23,8 @@ html {
     text-decoration: none;
     font-family: 'Ubuntu', sans-serif;
 }
+
+.searchBar {
+    width: 30rem !important;
+}
+

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
     <link rel="stylesheet" href="StaticFiles/CSS/root.css">
     <link rel="stylesheet" href="StaticFiles/CSS/utility.css">
 </head>
@@ -51,7 +51,7 @@ if ($_POST) {
         $_SESSION['isLoggedIn'] = true;
         $_SESSION['last_activity'] = time();
         $_SESSION['expire_time'] = 30 * 60; // expires after thirty minutes of inactivity
-        $_SESSION['idExpiryTime'] = 5 * 60;
+        $_SESSION['idExpiryTime'] = 30 * 60;
         $_SESSION['lastIdGenerated'] = time();
         
         $uid = $_SESSION["id"];

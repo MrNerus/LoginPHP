@@ -8,6 +8,51 @@
     align-items: center;
     justify-content: center;
 }
+.isFlex        { display: flex; }
+.alignCenter   { align-items: center; }
+.justifyCenter { justify-content: center; }
+.flexRow       { flex-direction: row; }
+.flexCol       { flex-direction: column; }
+.flexWrap      { flex-wrap: wrap; }
+.gap1          { gap: 1rem; }
+.gapHalf       { gap: 0.5rem; }
+
+.borderBox      { box-sizing: border-box; }
+.rounding       { border-radius: var(--rounding); }
+.roundingTight  { border-radius: var(--roundingTight); }
+.overFlowHidden { overflow: hidden; }
+.width20        { width: 20rem; }
+.fullWidth      { width: 100%; }
+.aspectRatio1_1 { aspect-ratio: 1}
+.flexShrink { flex-shrink: 1;}
+
+.fitCover { object-fit: cover; }
+
+.innerSpace1              { padding: 1rem; }
+.innerSpaceHalf           { padding: 0.5rem; }
+.innerSpaceVertical1      { padding-top: 1rem; padding-bottom: 1rem; }
+.innerSpaceVerticalHalf   { padding-top: 0.5rem; padding-bottom: 0.5rem}
+.innerSpaceHorizontal1    { padding-left: 1rem; padding-right: 1rem; }
+.innerSpaceHorizontalHalf { padding-left: 0.5rem; padding-right: 0.5rem}
+
+.transition { transition: var(--transition); }
+
+.shadowText             { box-shadow: 0 0 0 0.1rem var(--colorText); }
+.shadowTextHover        { box-shadow: 0 0 0 0.0rem var(--colorText); }
+.shadowTextHover:hover  { box-shadow: 0 0 0 0.1rem var(--colorText); }
+.shadowOk               { box-shadow: 0 0 0 0.1rem var(--colorOK); }
+.shadowOkHover          { box-shadow: 0 0 0 0.0rem var(--colorOK); }
+.shadowOkHover:hover    { box-shadow: 0 0 0 0.1rem var(--colorOK); }
+.shadowNotOk            { box-shadow: 0 0 0 0.1rem var(--colorNotOK); }
+.shadowNotOkHover       { box-shadow: 0 0 0 0.0rem var(--colorNotOK); }
+.shadowNotOkHover:hover { box-shadow: 0 0 0 0.1rem var(--colorNotOK); }
+
+.textLeft { text-align: left; }
+.neutral { text-decoration: none; color:var(--colorText) }
+
+.cursorPointer { cursor: pointer; }
+
+
 
 form {
     width: 25rem;
@@ -144,6 +189,9 @@ form:has( input[required]:placeholder-shown, input:invalid) input[type="submit"]
 .userInput:has(.toggleOutline) input[type="checkbox"] {
     display: none;
 }
+.userInput:has(textarea) label, .userInput:has(input[type="file"]) label { position: relative; left: 0; top: 0; transform: translate(0,0);}
+.userInput:has(textarea), .userInput:has(input[type="file"]) { gap: 1rem; }
+
 
 .userInput:has(select) select {
     border: none;
